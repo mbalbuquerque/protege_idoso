@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteção 50+ - Educação e Segurança Digital</title>
+
+    <!-- Configurações para PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b5ed7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="imagem/modelo1.png">
+
+    <!-- Vinculando o CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🛡️ Protege Idoso</h1>
+        <div style="display: flex; gap: 8px;">
+            <button id="btnInstalar" class="btn-access" style="display: none; background-color: #157347; color: white;"
+                onclick="instalarPWA()">📥 Instalar</button>
+            <button class="btn-access" onclick="aumentarFonte()" aria-label="Aumentar tamanho do texto">A+</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção do Chat com a Assistente -->
+        <section class="chat-box">
+            <div class="welcome-avatar">
+                <img src="imagem/modelo1.png" alt="Foto de perfil da assistente" class="avatar-img">
+                <div class="welcome-text">
+                    <h2>Oi! Meu nome é Carminha</h2>
+                    <p>Estou aqui para te ajudar a tirar dúvidas dobre segurança digital, pode perguntar o que quiser
+                        que irei te responder com calma.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 15px; margin-bottom: 8px;">Toque em <b>Falar</b> para dizer o que aconteceu ou digite
+                abaixo:</p>
+
+            <textarea id="textoDuvida" placeholder="Ex: Mensagem dizendo que ganhei um prêmio..."></textarea>
+
+            <div class="action-buttons">
+                <button class="btn-audio" onclick="ouvirMicrofone()">🎤 Falar</button>
+                <button class="btn-primary" onclick="enviarParaIA()">Perguntar</button>
+            </div>
+
+            <div id="respostaArea" class="resposta-container">
+                <strong>Orientações da Assistente:</strong>
+                <p id="textoResposta" style="margin: 8px 0 0 0; line-height: 1.5;">Que bom que você veio verificar!
+                    Analisei a mensagem. Parece ser um golpe comum de falsas ofertas. Por favor, não clique em nenhum
+                    link e não informe seus dados.</p>
+                <button class="btn-ouvir" onclick="lerResposta()">🔊 Ouvir Resposta Novamente</button>
+            </div>
+        </section>
+
+        <!-- Seção de Quiz Educativo -->
+        <section class="educational-box">
+            <h2>🧠 Vamos Jogar? quero saber se você está ligado nos golpes</h2>
+            <div id="quizContainer">
+                <p id="perguntaQuiz" style="font-weight: bold; margin-bottom: 14px;">Carregando pergunta...</p>
+                <div id="opcoesQuiz" class="quiz-options">
+                    <!-- Opções geradas via JavaScript -->
+                </div>
+                <p id="feedbackQuiz" style="margin-top: 12px; font-weight: bold; display: none;"></p>
+            </div>
+        </section>
+
+        <!-- Seção de Alertas e Vídeos Recomendados sobre Golpes Digitais -->
+        <section class="educational-box">
+            <h2>📺 Vídeos e Alertas Importantes</h2>
+            <p style="font-size: 0.95rem; color: #555; margin-bottom: 16px;">Assista aos vídeos explicativos para
+                aprender a identificar e se proteger de fraudes:</p>
+
+            <div class="youtube-list">
+                <!-- Vídeo 1: MedSênior -->
+                <div class="yt-card">
+                    <div class="yt-media-preview"
+                        onclick="abrirModalVideo('https://www.youtube.com/embed/_NuJQC4t-p0', 'MedSênior - Fraudes Bancárias', 'Entenda como funcionam as ligações falsas automatizadas e por que a fraude bancária é o golpe número um.', 'https://www.youtube.com/watch?v=_NuJQC4t-p0')">
+                        <div
+                            style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                            ▶</div>
+                    </div>
+                    <div class="yt-info">
+                        <div class="yt-header-row">
+                            <strong>MedSênior Brasil</strong>
+                            <span class="yt-tag tag-seguranca">Fraude</span>
+                        </div>
+                        <p>O topo 1 em golpes virtuais: como criminosos usam ligações falsas e convincentes.</p>
+                        <span class="yt-action"
+                            onclick="abrirModalVideo('https://www.youtube.com/embed/_NuJQC4t-p0', 'MedSênior - Fraudes Bancárias', 'Entenda como funcionam as ligações falsas automatizadas e por que a fraude bancária é o golpe número um.', 'https://www.youtube.com/watch?v=_NuJQC4t-p0')"
+                            style="cursor: pointer;">Ampliar vídeo 🔍</span>
+                    </div>
+                </div>
+
+                <!-- Vídeo 2: CNN Brasil / Tec -->
+                <div class="yt-card">
+                    <div class="yt-media-preview"
+                        onclick="abrirModalVideo('https://www.youtube.com/embed/AO0s_iL6wQQ', 'CNN Brasil - Golpes Digitais', 'Especialistas explicam o crescimento dos ataques virtuais e como se defender de links suspeitos.', 'https://www.youtube.com/watch?v=AO0s_iL6wQQ')">
+                        <div
+                            style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                            ▶</div>
+                    </div>
+                    <div class="yt-info">
+                        <div class="yt-header-row">
+                            <strong>CNN Brasil</strong>
+                            <span class="yt-tag tag-seguranca">Segurança</span>
+                        </div>
+                        <p>Golpes digitais crescem em 2025: entenda como se defender de falsas centrais e links.</p>
+                        <span class="yt-action"
+                            onclick="abrirModalVideo('https://www.youtube.com/embed/AO0s_iL6wQQ', 'CNN Brasil - Golpes Digitais', 'Especialistas explicam o crescimento dos ataques virtuais e como se defender de links suspeitos.', 'https://www.youtube.com/watch?v=AO0s_iL6wQQ')"
+                            style="cursor: pointer;">Ampliar vídeo 🔍</span>
+                    </div>
+                </div>
+
+                <!-- Vídeo 3: Brasil Paralelo -->
+                <div class="yt-card">
+                    <div class="yt-media-preview"
+                        onclick="abrirModalVideo('https://www.youtube.com/embed/-Bwii0DYovo', 'Brasil Paralelo - Caí no Golpe, e Agora?', 'Descubra quais são os principais golpes da atualidade e o passo a passo de o que fazer caso caia em um.', 'https://www.youtube.com/watch?v=-Bwii0DYovo')">
+                        <div
+                            style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                            ▶</div>
+                    </div>
+                    <div class="yt-info">
+                        <div class="yt-header-row">
+                            <strong>Brasil Paralelo</strong>
+                            <span class="yt-tag tag-seguranca">Alerta</span>
+                        </div>
+                        <p>CAÍ NO GOLPE, E AGORA? Aprenda a agir rápido, usar o MED do Pix e registrar ocorrência.</p>
+                        <span class="yt-action"
+                            onclick="abrirModalVideo('https://www.youtube.com/embed/-Bwii0DYovo', 'Brasil Paralelo - Caí no Golpe, e Agora?', 'Descubra quais são os principais golpes da atualidade e o passo a passo de o que fazer caso caia em um.', 'https://www.youtube.com/watch?v=-Bwii0DYovo')"
+                            style="cursor: pointer;">Ampliar vídeo 🔍</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-buttons" style="margin-top: 20px;">
+            <a href="tel:190" class="btn-card btn-danger">
+                <span style="font-size: 1.5rem;">🚨</span>
+                Caí num Golpe clica aqui e ligue para a Polícia
+            </a>
+            <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" class="btn-card">
+                <span style="font-size: 1.5rem;">🏛️</span>
+                Bloquear Links, peça ajuda se precisar!
+            </a>
+        </div>
+    </main>
+
+    <!-- Modal Ampliado para o Vídeo do YouTube -->
+    <div id="videoModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModalVideo()">✕ Fechar</button>
+            <h3 id="modalTitulo" style="color: var(--primary-color); margin-top: 0; margin-bottom: 12px;">Assistindo
+                Vídeo</h3>
+            <div class="modal-video-container"
+                style="position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 10px; overflow: hidden;">
+                <iframe id="modalYoutubeIframe" src="" title="Vídeo do YouTube" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            </div>
+            <p id="modalDescricao" style="font-size: 0.95rem; color: #555; margin-top: 12px; margin-bottom: 16px;"></p>
+            <a id="modalLinkExterno" href="#" target="_blank" class="btn-primary"
+                style="display: block; text-align: center; text-decoration: none;">Assistir Vídeo Completo no YouTube
+                ▶</a>
+        </div>
+    </div>
+
+
+    <!-- Seção de Canais de Denúncia e Apoio -->
+    <section class="educational-box">
+        <h2>🏛️ Canais Oficiais de Denúncia e Ajuda</h2>
+        <p style="font-size: 0.95rem; color: #555; margin-bottom: 16px;">Foi vítima de golpe ou fraude? Conheça onde
+            registrar e buscar apoio oficial:</p>
+
+        <div class="youtube-list">
+            <!-- Canal 1: Delegacia Virtual -->
+            <a href="http://servicos.sds.pe.gov.br/delegacia/" target="_blank" class="yt-card"
+                style="text-decoration: none; color: inherit;">
+                <div class="yt-media-preview"
+                    style="background-color: #e0f2fe; color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                    🚨
+                </div>
+                <div class="yt-info">
+                    <div class="yt-header-row">
+                        <strong>Delegacia Virtual</strong>
+                        <span class="yt-tag" style="background-color: #e0f2fe; color: #0369a1;">Polícia</span>
+                    </div>
+                    <p>Registre um Boletim de Ocorrência (BO) online de forma rápida para casos de fraudes e
+                        estelionato.</p>
+                    <span class="yt-action" style="color: #0284c7;">Acessar Delegacia ▶</span>
+                </div>
+            </a>
+
+            <!-- Canal 2: Delegacia Crimes Cibernéticos -->
+            <a href="https://policias.net.br/sobre/delegacia-de-crimes-ciberneticos-recife-pe" target="_blank"
+                class="yt-card" style="text-decoration: none; color: inherit;">
+                <div class="yt-media-preview"
+                    style="background-color: #fef3c7; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                    ⚖️
+                </div>
+                <div class="yt-info">
+                    <div class="yt-header-row">
+                        <strong>Delagacia Recife</strong>
+                        <span class="yt-tag" style="background-color: #fef3c7; color: #b45309;">Delegacia
+                            Especializada</span>
+                    </div>
+                    <p>Onde Fica: Localização da delegacia de Polícia - Bairro: Boa Vista.
+                    </p>
+                    <span class="yt-action" style="color: #d97706;">Acessar</span>
+                </div>
+            </a>
+
+            <!-- Canal 3: Delagacias pelo Brasil -->
+            <a href="https://new.safernet.org.br/content/delegacias-cibercrimes" target="_blank" class="yt-card"
+                style="text-decoration: none; color: inherit;">
+                <div class="yt-media-preview"
+                    style="background-color: #dcfce7; color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                    💰
+                </div>
+                <div class="yt-info">
+                    <div class="yt-header-row">
+                        <strong>Delegacias pelo Brasil</strong>
+                        <span class="yt-tag" style="background-color: #dcfce7; color: #15803d;">Pix / MED</span>
+                    </div>
+                    <p>Está sendo vítima de algum crime cibernético? Existem delegacias especializadas em alguns estados
+                        do Brasil. Caso não haja uma em sua cidade ou região, procure a delegacia mais próxima de sua
+                        residência.</p>
+                    <span class="yt-action" style="color: #16a34a;">Acessar ▶</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Vinculando o JavaScript Externo -->
+    <script src="script.js"></script>
+</body>
+
+</html>

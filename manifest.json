@@ -1,0 +1,20 @@
+{
+    "name": "Protege Idoso",
+    "short_name": "ProtegeIdoso",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#f4f6f9",
+    "theme_color": "#0b5ed7",
+    "icons": [
+        {
+            "src": "imagem/modelo1.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "imagem/modelo1.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

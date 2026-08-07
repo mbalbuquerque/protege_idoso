@@ -1,0 +1,413 @@
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --primary-color: #0b5ed7;
+    --danger-color: #bb2d3b;
+    --success-color: #157347;
+    --font-size: 18px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: var(--font-size);
+    margin: 0;
+    padding: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.btn-access {
+    background: #e9ecef;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.chat-box,
+.educational-box {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.educational-box h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.welcome-avatar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.avatar-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text h2 {
+    font-size: 1.2rem;
+    margin: 0 0 4px 0;
+    color: var(--primary-color);
+}
+
+.welcome-text p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #555;
+    line-height: 1.4;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 14px;
+    font-size: 1rem;
+    border: 2px solid #ced4da;
+    border-radius: 10px;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.btn-audio {
+    background-color: #ffca2c;
+    color: #000;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.resposta-container {
+    margin-top: 15px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 8px;
+    display: none;
+}
+
+.btn-ouvir {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* Estilos do Quiz */
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-quiz {
+    background-color: #f1f3f5;
+    border: 2px solid #ced4da;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-color);
+}
+
+.btn-quiz:hover {
+    background-color: #e9ecef;
+    border-color: var(--primary-color);
+}
+
+/* Estilos da Lista do YouTube */
+.youtube-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.yt-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+.yt-card:hover {
+    border-color: var(--primary-color);
+}
+
+.yt-card strong {
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.yt-card p {
+    font-size: 0.85rem;
+    margin: 2px 0 0 0;
+    color: #555;
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.btn-card {
+    background: var(--card-bg);
+    border: 2px solid #dee2e6;
+    padding: 20px 14px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.btn-danger {
+    border-color: var(--danger-color);
+    color: var(--danger-color);
+    background-color: #fff8f8;
+}
+
+/* Estilos Atualizados para os Cards do YouTube com Prévia em Vídeo */
+.yt-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    padding: 12px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.yt-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.08);
+}
+
+/* Janela de Prévia do Vídeo (Estilo Mini Player) */
+.yt-media-preview {
+    width: 90px;
+    height: 65px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    background-color: #000;
+    border: 2px solid #dee2e6;
+}
+
+.yt-video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    padding-left: 2px;
+    transition: background 0.2s;
+}
+
+.yt-card:hover .play-overlay {
+    background: #ff0000;
+}
+
+.yt-info {
+    flex: 1;
+}
+
+.yt-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.yt-info strong {
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.yt-tag {
+    font-size: 0.7rem;
+    background-color: #e2e8f0;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.tag-seguranca {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.yt-card p {
+    font-size: 0.85rem;
+    margin: 0 0 6px 0;
+    color: #555;
+    line-height: 1.3;
+}
+
+.yt-action {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #cc0000;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Estilos do Modal de Vídeo */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.modal-close {
+    background: #e9ecef;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.modal-close:hover {
+    background: #dee2e6;
+}
+
+.modal-video-container {
+    width: 100%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
